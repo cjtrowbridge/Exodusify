@@ -7,6 +7,7 @@ Tools and notebooks to help migrate away from Spotify onto a local-library playe
 - A Jupyter notebook that builds:
 	- Dated shopping lists of missing tracks
 	- An orphaned-tracks list (tracks not in any playlist)
+	- Playlist coverage stats and unique-missing counts
 	- (Later) device-ready playlists for the Y1
 
 The core logic lives in a Jupyter notebook you can run inside this repo.
@@ -173,7 +174,17 @@ This file represents tracks you own that don’t belong to any current playlist 
 - Discover music you may want to add to playlists.
 - Decide whether to keep or archive rarely used tracks.
 
-### 3.7 Later: device-ready playlists (Innioasis Y1)
+### 3.7 Reviewing playlist coverage
+
+Cell 8 in the notebook summarizes overall progress so you can prioritize work without digging into raw DataFrames:
+
+- Per-playlist totals of tracks, matched files, missing files, and percent complete (sorted by completion).
+- Flags showing whether each playlist snapshot came from `Liked_Songs.csv` or a `Your_Top_Songs_YYYY.csv` export.
+- Global aggregates plus the number of **unique missing tracks** across every playlist, deduplicated on canonical artist/title keys.
+
+Re-run the earlier cells to refresh `matched_df`, then execute Cell 8 whenever you want an updated dashboard view.
+
+### 3.8 Later: device-ready playlists (Innioasis Y1)
 
 The notebook design also supports a longer-term step: generating playlist files that the Innioasis Y1 can read (typically `.m3u` or `.m3u8`):
 
