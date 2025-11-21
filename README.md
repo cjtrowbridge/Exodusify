@@ -209,11 +209,11 @@ Re-run the earlier cells to refresh `matched_df`, then execute Cell 8 whenever y
 Cell 9 now writes device-ready `.m3u8` playlists under `Playlists/` so you can copy them straight to the Innioasis SD card:
 
 1. Ensure Cells 1–7 (and the playlist stats if desired) have been re-run so `matched_df` reflects the latest library + Spotify snapshots.
-2. Ensure the export cell points at the correct on-device base folder (default `Music/`).
+2. Ensure the export cell points at the correct on-device base folder (default `../Music/`).
 3. Run Cell 9. For each playlist Exportify produced:
 	- Tracks with a resolved `file_path` are sorted by their Spotify `Position` (if present) and written as EXTINF entries.
 	- Missing tracks are skipped, but the summary table shows how many were omitted per playlist.
-	- Paths inside each `.m3u8` are relative (e.g. `Music/Artist/Album/Track.mp3`) to simplify copying onto the SD card.
+	- Paths inside each `.m3u8` are relative (e.g. `../Music/Artist/Album/Track.mp3`) so the playlists continue to work when copied next to the `Music/` directory on the SD card.
 
 Check the printed summary for the count of playlists exported and their destination filenames, then copy both the audio folders and matching `.m3u8` files to the Y1.
 
